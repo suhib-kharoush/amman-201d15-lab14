@@ -20,7 +20,7 @@ child.textContent = newItem;
 Cart.prototype.saveToLocalStorage = function () {
   // TODO: Fill in this instance method to save the contents of the cart to localStorage
   localStorage.setItem('cart', JSON.stringify(this.items))
-  localStorage.getItem(JSON.parse(newItem));
+  localStorage.getItem(JSON.parse('cart'));
 };
 
 Cart.prototype.removeItem = function (item) {
@@ -77,6 +77,3 @@ for (let i = 0; i < Product.allProducts.length; i++) {
   list.appendChild(item);
   console.log(item)
 }
-
-
-let message = getElementBy
