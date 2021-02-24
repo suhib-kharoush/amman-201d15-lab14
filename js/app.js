@@ -10,17 +10,16 @@ Cart.prototype.addItem = function (product, quantity) {
   // TODO: Fill in this instance method to create a new CartItem and add it to this.items
   let newItem = new CartItem(product, quantity);
   this.items.push(newItem);
-let parent = getElementById('cartContents');
-let child = document.createElement('li');
-parent.appendChild(child);
-child.textContent = newItem;
+  // let parent = getElementById('cartContents');
+  // let child = document.createElement('li');
+  // parent.appendChild(child);
+  // child.textContent = newItem;
 };
 
 
 Cart.prototype.saveToLocalStorage = function () {
   // TODO: Fill in this instance method to save the contents of the cart to localStorage
   localStorage.setItem('cart', JSON.stringify(this.items))
-  localStorage.getItem(JSON.parse('cart'));
 };
 
 Cart.prototype.removeItem = function (item) {
@@ -39,8 +38,10 @@ const Product = function (filePath, name) {
   this.filePath = filePath;
   this.name = name;
   Product.allProducts.push(this);
+  Product.allNames.push(this.name)
 };
 Product.allProducts = [];
+Product.allNames = [];
 
 function generateCatalog() {
   new Product('assets/bag.jpg', 'Bag');
@@ -68,12 +69,3 @@ function generateCatalog() {
 // Initialize the app by creating the big list of products with images and names
 generateCatalog();
 
-let list = document.getElementById('items');
-for (let i = 0; i < Product.allProducts.length; i++) {
-
-  let item = document.createElement('option');
-
-  item.textContent = Product.allProducts[i].name;
-  list.appendChild(item);
-  console.log(item)
-}
